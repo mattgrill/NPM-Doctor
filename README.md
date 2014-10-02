@@ -17,7 +17,7 @@ There are couple common problems with `npm_modules` directory. This tool tries t
 
 ## Running
 
-`npm install -g npmdoctor`
+`sudo npm install -g npmdoctor`
 
 Then, and yes, you need `sudo` to correctly fix the permissions.
 

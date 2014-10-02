@@ -1,6 +1,6 @@
 {
   "name": "npmdoctor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fixes issues when installing modules from NPM",
   "author": "Matthew Grill",
   "license": "MIT",
