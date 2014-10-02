@@ -1,0 +1,23 @@
+{
+  "name": "npmdoctor",
+  "version": "0.0.1",
+  "description": "Fixes issues when installing modules from NPM",
+  "author": "Matthew Grill",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mattgrill/NPM-Doctor.git"
+  },
+  "dependencies": {
+    "commander": "~2.3.0",
+    "stat-mode": "~0.2.0",
+    "chownr": "0.0.1"
+  },
+  "bin": {
+    "npmdoctor": "./bin/npmdoctor.js"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.0",
+    "gulp-jshint": "^1.6.2"
+  }
+}
