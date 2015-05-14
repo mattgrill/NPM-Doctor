@@ -9,9 +9,8 @@
     "url": "git@github.com:mattgrill/NPM-Doctor.git"
   },
   "dependencies": {
-    "commander": "~2.3.0",
-    "stat-mode": "~0.2.0",
-    "chownr": "0.0.1"
+    "chownr": "0.0.1",
+    "q": "~1.2.0"
   },
   "bin": {
     "npmdoctor": "./bin/npmdoctor.js"
