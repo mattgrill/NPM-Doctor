@@ -6,7 +6,8 @@ var program         = require('commander'),
     sys             = require('sys'),
     exec            = require('child_process').exec,
     chownr          = require('chownr'),
-    mode            = require('stat-mode');
+    mode            = require('stat-mode'),
+    os              = require('os');
 
 program
   .version('0.0.1')
@@ -51,10 +52,20 @@ var runningUser     = process.env.USER,
 
 if (program.user){
   var userId,
+      groupId,
+      groupName,
       nodeModulesDir,
       nodeModulesStat;
   getUserId(program.user, function (id) {
     userId = id;
+    if (os.type() === 'Linux') {
+      groupId = 4;
+      groupName = 'adm';
+    }
+    else {
+      groupId = 80;
+      groupName = 'admin';
+    }
     getNodeModules(function (path, stats) {
       nodeModulesDir    = path;
       nodeModulesStat   = new mode(stats);
@@ -63,8 +74,8 @@ if (program.user){
           console.log('Set '+nodeModulesDir+' to 755.');
         });
       }
-      chownr(nodeModulesDir, Number(userId), 80, function () {
-        console.log('Set ownership of '+nodeModulesDir+' to '+program.user+':admin');
+      chownr(nodeModulesDir, Number(userId), groupId, function () {
+        console.log('Set ownership of '+nodeModulesDir+' to '+program.user+':'+groupName);
       });
     });
   });
